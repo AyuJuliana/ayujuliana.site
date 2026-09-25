@@ -5,7 +5,7 @@ import '../globals.css'
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    const settings = await getSiteSettings()
+    const settings: any = await getSiteSettings()
     return {
       title: settings.seo?.metaTitle ?? 'Ayu Juliana — Portfolio',
       description: settings.seo?.metaDescription ?? 'Portfolio Ni Komang Ayu Juliana',

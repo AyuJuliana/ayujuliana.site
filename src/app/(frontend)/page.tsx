@@ -22,9 +22,9 @@ export default async function LandingPage({
 
   return (
     <LandingClient
-      tracks={tracks}
+      tracks={tracks as any}
       selectedTrackSlug={trackSlug ?? null}
-      settings={settings}
+      settings={settings as any}
     />
   )
 }
