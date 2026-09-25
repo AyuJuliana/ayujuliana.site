@@ -1,0 +1,16 @@
+.footer {
+  padding-bottom: 40px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.text {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}

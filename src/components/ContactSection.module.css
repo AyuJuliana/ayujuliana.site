@@ -1,0 +1,210 @@
+.root { position: relative; overflow: hidden; }
+
+.orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--track-accent) 12%, transparent) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.header { margin-bottom: 56px; }
+.title  { max-width: 520px; }
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ── Contact info ──────────────────────────────────────── */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactLink {
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all 200ms;
+  display: block;
+}
+
+.contactLink:hover .contactItem {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glow);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: all 200ms;
+}
+
+.contactIcon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--track-accent) 10%, transparent);
+  border-radius: var(--radius-md);
+}
+
+.contactLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.contactValue {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+/* Social row */
+.socialRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  padding-left: 16px;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 200ms;
+}
+
+.socialIcon:hover {
+  background: color-mix(in srgb, var(--track-accent) 12%, transparent);
+  border-color: var(--border-glow);
+  color: var(--track-accent);
+  transform: translateY(-2px);
+}
+
+/* ── Form ──────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.input {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: border-color 200ms, box-shadow 200ms;
+  width: 100%;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:focus {
+  border-color: var(--track-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--track-accent) 12%, transparent);
+}
+
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Status messages */
+.successMsg {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(52,211,153,0.1);
+  border: 1px solid rgba(52,211,153,0.3);
+  color: #34d399;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.errorMsg {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(248,113,113,0.1);
+  border: 1px solid rgba(248,113,113,0.3);
+  color: #f87171;
+  font-size: 0.9rem;
+}
+
+/* Submit button */
+.submitBtn {
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 14px 28px;
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-top-color: rgba(0,0,0,0.7);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
