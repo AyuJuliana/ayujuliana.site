@@ -10,13 +10,13 @@ interface Props {
   settings: SiteSettings | null
 }
 
-const DEFAULT_BADGES = [
-  { text: 'Machine Learning', pos: 'top-left' },
-  { text: 'React / Next.js', pos: 'top-right' },
-  { text: 'Python',           pos: 'left' },
-  { text: 'Swift / iOS',      pos: 'right' },
-  { text: 'SQL & Analytics',  pos: 'bottom-left' },
-  { text: 'QA Automation',    pos: 'bottom-right' },
+const DEFAULT_BADGES: { text: string; position: string }[] = [
+  { text: 'Machine Learning', position: 'top-left' },
+  { text: 'React / Next.js',   position: 'top-right' },
+  { text: 'Python',           position: 'left' },
+  { text: 'Swift / iOS',      position: 'right' },
+  { text: 'SQL & Analytics',  position: 'bottom-left' },
+  { text: 'QA Automation',    position: 'bottom-right' },
 ]
 
 export default function HeroSection({ track, settings }: Props) {
@@ -102,15 +102,18 @@ export default function HeroSection({ track, settings }: Props) {
             )}
 
             {/* Floating badges */}
-            {badges.slice(0, 6).map((badge, i) => (
-              <div
-                key={i}
-                className={`${styles.badge} ${styles[`badge_${badge.pos?.replace('-', '_') ?? 'top_left'}`]}`}
-                style={{ animationDelay: `${i * 0.3}s` }}
-              >
-                {badge.text}
-              </div>
-            ))}
+            {badges.slice(0, 6).map((badge, i) => {
+              const posKey = badge.position ? badge.position.replace('-', '_') : 'top_left'
+              return (
+                <div
+                  key={i}
+                  className={`${styles.badge} ${styles[`badge_${posKey}`] ?? styles.badge_top_left}`}
+                  style={{ animationDelay: `${i * 0.3}s` }}
+                >
+                  {badge.text}
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

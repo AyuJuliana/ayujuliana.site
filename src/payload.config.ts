@@ -33,7 +33,7 @@ export default buildConfig({
     },
     meta: {
       titleSuffix: '— Ayu Juliana CMS',
-      favicon: '/favicon.ico',
+      icons: [{ rel: 'icon', url: '/favicon.ico' }],
     },
   },
   collections: [
