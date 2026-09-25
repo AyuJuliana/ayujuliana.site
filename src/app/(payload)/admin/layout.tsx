@@ -3,7 +3,8 @@ import { handleServerFunctions } from './serverActions'
 import { importMap } from './importMap'
 import React from 'react'
 
-import '@payloadcms/ui/dist/styles.css'
+// Payload admin styles are automatically injected by withPayload in next.config
+// No manual CSS import needed
 
 type Args = {
   children: React.ReactNode
